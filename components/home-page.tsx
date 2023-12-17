@@ -85,6 +85,14 @@ const Services = () => {
     "
     >
       <div className="grid grid-cols-2 gap-y-8 sm:gap-y-8 md:grid md:grid-cols-4 md:gap-x-8 md:gap-y-10">
+        <div>
+          <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-black text-white">
+            <PipetteIcon className="h-6 w-6" />
+          </div>
+          <p className="ml-16 text-lg leading-6 font-medium text-gray-900 ">
+            Underground Utilities
+          </p>
+        </div>
         <div className="">
           <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-black text-white">
             <ShovelIcon className="h-6 w-6" />
@@ -101,15 +109,7 @@ const Services = () => {
           <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-black text-white">
             <ConstructionIcon className="h-6 w-6" />
           </div>
-          <p className="ml-16 text-lg leading-6 font-medium text-gray-900 ">Paving</p>
-        </div>
-        <div>
-          <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-black text-white">
-            <PipetteIcon className="h-6 w-6" />
-          </div>
-          <p className="ml-16 text-lg leading-6 font-medium text-gray-900 ">
-            Underground Utilities
-          </p>
+          <p className="ml-16 text-lg leading-6 font-medium text-gray-900 ">Punchout</p>
         </div>
       </div>
     </div>
