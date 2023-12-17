@@ -9,8 +9,38 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { JSX, SVGProps } from "react";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY ?? "");
 
 export function ContactForm() {
+  const handleSubmit = async (formData: FormData) => {
+    "use server";
+
+    const rawFormData = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+      honeypotName: formData.get("h-name"),
+      honeypotEmail: formData.get("h-email"),
+      honeypotMessage: formData.get("h-message"),
+    };
+
+    if (rawFormData.honeypotName || rawFormData.honeypotEmail || rawFormData.honeypotMessage) {
+      console.log("Honeypot triggered - No email sent");
+      return;
+    }
+
+    const { data } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL ?? "",
+      to: process.env.RESEND_TO_EMAIL ?? "",
+      subject: `${rawFormData.name} <${rawFormData.email}> email from g2sitework.com/contact `,
+      html: `<div>${rawFormData.message}</div>`,
+    });
+
+    console.log(`"Sending email" ${data?.id}`);
+  };
+
   return (
     <Card className="max-w-lg mx-auto p-8 space-y-6">
       <CardHeader className="mb-6">
@@ -26,12 +56,13 @@ export function ContactForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form className="space-y-4">
+        <form className="space-y-4" action={handleSubmit}>
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
             <Input
               className="w-full focus-visible:ring-gray-700"
               id="name"
+              name="name"
               placeholder="First and Last Name"
               required
             />
@@ -41,6 +72,7 @@ export function ContactForm() {
             <Input
               className="w-full focus-visible:ring-gray-700"
               id="email"
+              name="email"
               placeholder="name@xyz.com"
               required
               type="email"
@@ -51,11 +83,20 @@ export function ContactForm() {
             <Textarea
               className="w-full min-h-[100px] focus-visible:ring-gray-700"
               id="message"
+              name="message"
               placeholder="Your Message"
               required
             />
           </div>
-          <Button className="w-full bg-black text-white">Submit</Button>
+          {/* Honeypot fields */}
+          <div className="absolute top-0 left-0 opacity-0 w-0 h-0 -z-10 ">
+            <Input id="h-email" name="h-email" type="email" />
+            <Input id="h-name" name="h-name" type="text" />
+            <Input id="h-text" name="h-message" type="text" />
+          </div>
+          <Button type="submit" className="w-full bg-black focus-visible:ring-gray-700 text-white">
+            Submit
+          </Button>
         </form>
       </CardContent>
     </Card>

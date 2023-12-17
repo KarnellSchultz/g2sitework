@@ -55,40 +55,7 @@ export function HomePage() {
             <h2 className="text-3xl py-2 font-bold tracking-tighter text-center sm:text-5xl xl:text-6xl/none">
               Our Services
             </h2>
-            <div className="grid gap-6 lg:grid-cols-3">
-              <Card className="overflow-hidden rounded-xl shadow-lg">
-                <CardHeader className="bg-gray-100 p-4">
-                  <h3 className="text-xl font-bold">Excavation</h3>
-                </CardHeader>
-                <CardContent className="p-4">
-                  <p className="text-gray-500">
-                    We provide top-notch excavation services for all types of construction projects.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="overflow-hidden rounded-xl shadow-lg">
-                <CardHeader className="bg-gray-100 p-4">
-                  <h3 className="text-xl font-bold">Site Preparation</h3>
-                </CardHeader>
-                <CardContent className="p-4">
-                  <p className="text-gray-500">
-                    Our team ensures your site is prepared properly, meeting all the necessary
-                    requirements.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="overflow-hidden rounded-xl shadow-lg">
-                <CardHeader className="bg-gray-100 p-4">
-                  <h3 className="text-xl font-bold">Final Grading</h3>
-                </CardHeader>
-                <CardContent className="p-4">
-                  <p className="text-gray-500">
-                    We provide precise final grading services to prepare your site for landscaping
-                    and construction.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+            <Services />
           </div>
         </section>
         <section className="w-full flex justify-center py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-100">
@@ -115,6 +82,44 @@ export function HomePage() {
   );
 }
 
+const Services = () => {
+  return (
+    <div
+      className="w-full flex justify-center
+    "
+    >
+      <div className="grid grid-cols-2 gap-y-8 sm:gap-y-8 md:grid md:grid-cols-4 md:gap-x-8 md:gap-y-10">
+        <div className="">
+          <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-black text-white">
+            <ShovelIcon className="h-6 w-6" />
+          </div>
+          <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Excavation</p>
+        </div>
+        <div>
+          <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-black text-white">
+            <PenToolIcon className="h-6 w-6" />
+          </div>
+          <p className="ml-16 text-lg leading-6 font-medium text-gray-900 ">Grading</p>
+        </div>
+        <div>
+          <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-black text-white">
+            <ConstructionIcon className="h-6 w-6" />
+          </div>
+          <p className="ml-16 text-lg leading-6 font-medium text-gray-900 ">Paving</p>
+        </div>
+        <div>
+          <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-black text-white">
+            <PipetteIcon className="h-6 w-6" />
+          </div>
+          <p className="ml-16 text-lg leading-6 font-medium text-gray-900 ">
+            Underground Utilities
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export function HardHatIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -133,6 +138,96 @@ export function HardHatIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElem
       <path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" />
       <path d="M4 15v-3a6 6 0 0 1 6-6h0" />
       <path d="M14 6h0a6 6 0 0 1 6 6v3" />
+    </svg>
+  );
+}
+
+function ConstructionIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="2" y="6" width="20" height="8" rx="1" />
+      <path d="M17 14v7" />
+      <path d="M7 14v7" />
+      <path d="M17 3v3" />
+      <path d="M7 3v3" />
+      <path d="M10 14 2.3 6.3" />
+      <path d="m14 6 7.7 7.7" />
+      <path d="m8 6 8 8" />
+    </svg>
+  );
+}
+
+function PenToolIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m12 19 7-7 3 3-7 7-3-3z" />
+      <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+      <path d="m2 2 7.586 7.586" />
+      <circle cx="11" cy="11" r="2" />
+    </svg>
+  );
+}
+
+function PipetteIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m2 22 1-1h3l9-9" />
+      <path d="M3 21v-3l9-9" />
+      <path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z" />
+    </svg>
+  );
+}
+
+function ShovelIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M2 22v-5l5-5 5 5-5 5z" />
+      <path d="M9.5 14.5 16 8" />
+      <path d="m17 2 5 5-.5.5a3.53 3.53 0 0 1-5 0s0 0 0 0a3.53 3.53 0 0 1 0-5L17 2" />
     </svg>
   );
 }
