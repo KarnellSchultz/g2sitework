@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { JSX, SVGProps } from "react";
 
 export function ContactForm() {
   return (
@@ -18,7 +19,9 @@ export function ContactForm() {
           Please fill out the form below and we will get back to you as soon as possible.
           <div className="flex py-2 gap-2">
             <MailboxIcon className="w-5 h-5" />
-            <Link className="text-blue-600" href="mailto:info@g2sitework.com">info@g2sitework.com</Link>
+            <Link className="text-blue-600" href="mailto:info@g2sitework.com">
+              info@g2sitework.com
+            </Link>
           </div>
         </CardDescription>
       </CardHeader>
@@ -59,7 +62,7 @@ export function ContactForm() {
   );
 }
 
-function MailboxIcon(props) {
+function MailboxIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
