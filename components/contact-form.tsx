@@ -55,7 +55,7 @@ export function ContactForm() {
           </div>
           <div className="flex py-2 gap-2">
             <Phone className="w-5 h-5" />
-            <Link className="text-blue-600" href="mailto:info@g2sitework.com">
+            <Link className="text-blue-600" href={`tel:${process.env.PHONE_NUMBER}`}>
               {process.env.PHONE_NUMBER}
             </Link>
           </div>
