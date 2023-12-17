@@ -6,7 +6,7 @@ import { HardHatIcon } from "@/components/home-page";
 
 export const metadata: Metadata = {
   title: "G2 Sitework",
-  description: "G2 Sitework is a full-service site development company.",
+  description: "G2 Sitework is a Tampa Bay-based sitework & underground utility company",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
