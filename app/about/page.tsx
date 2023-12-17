@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main>
-      <div className="h-screen w-full flex flex-col justify-center items-center px-4 gap-4 py-6 sm:py-12 md:py-24 lg:py-32 xl:py-48">
+      <div className="h-screen w-full flex flex-col items-center px-4 gap-4 py-6 sm:py-12 md:py-24 lg:py-32 xl:py-48">
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
             About G2 Sitework
