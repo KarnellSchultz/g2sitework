@@ -3,7 +3,6 @@
  * @see https://v0.dev/t/nJuuVKkThFh
  */
 import Link from "next/link";
-import { CardHeader, CardContent, Card } from "@/components/ui/card";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { JSX, SVGProps } from "react";
@@ -24,6 +23,9 @@ export function HomePage() {
               />
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none bg-gradient-to-r from-orange-400  to-yellow-400 bg-clip-text text-transparent">
+                    G2 sitework
+                  </h1>
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                     Quality Sitework Services in Florida
                   </h1>
@@ -38,12 +40,6 @@ export function HomePage() {
                     href="/contact"
                   >
                     Get a Quote
-                  </Link>
-                  <Link
-                    className="inline-flex h-10 items-center justify-center rounded-md border text-white border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                    href="#"
-                  >
-                    Our Services
                   </Link>
                 </div>
               </div>
@@ -142,7 +138,7 @@ export function HardHatIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElem
   );
 }
 
-function ConstructionIcon(props) {
+function ConstructionIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -168,7 +164,7 @@ function ConstructionIcon(props) {
   );
 }
 
-function PenToolIcon(props) {
+function PenToolIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -190,7 +186,7 @@ function PenToolIcon(props) {
   );
 }
 
-function PipetteIcon(props) {
+function PipetteIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -211,7 +207,7 @@ function PipetteIcon(props) {
   );
 }
 
-function ShovelIcon(props) {
+function ShovelIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
