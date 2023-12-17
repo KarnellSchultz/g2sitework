@@ -98,7 +98,7 @@ export function HomePage() {
                 Ready to Start Your Project?
               </h2>
               <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Let's build something great together. Get in touch with us today for a free quote.
+                {`Let's build something great together. Get in touch with us today for a free quote.`}
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row lg:justify-end">
