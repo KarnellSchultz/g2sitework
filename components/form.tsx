@@ -64,18 +64,18 @@ export const Form = () => {
           required
         />
       </div>
-      {/* Honeypot fields */}
-      <div className="absolute top-0 left-0 opacity-0 w-0 h-0 -z-10 ">
-        <Input id="h-email" name="h-email" type="email" />
-        <Input id="h-name" name="h-name" type="text" />
-        <Input id="h-text" name="h-message" type="text" />
-      </div>
       <SubmitButton />
       {message && (
         <div className="text-gray-500">
           <p>{message.message}</p>
         </div>
       )}
+      {/* Hp fields */}
+      <div className="absolute top-0 left-0 opacity-0 w-0 h-0 -z-10 ">
+        <Input id="h-email" name="h-email" type="email" />
+        <Input id="h-name" name="h-name" type="text" />
+        <Input id="h-text" name="h-message" type="text" />
+      </div>
     </form>
   );
 };
