@@ -3,107 +3,39 @@
  * @see https://v0.dev/t/WFdzbTH9Ozg
  */
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { JSX, SVGProps } from "react";
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY ?? "");
+import { Form } from "./form";
 
 export function ContactForm() {
-  const handleSubmit = async (formData: FormData) => {
-    "use server";
-
-    const rawFormData = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-      honeypotName: formData.get("h-name"),
-      honeypotEmail: formData.get("h-email"),
-      honeypotMessage: formData.get("h-message"),
-    };
-
-    if (rawFormData.honeypotName || rawFormData.honeypotEmail || rawFormData.honeypotMessage) {
-      console.log("Honeypot triggered - No email sent");
-      return;
-    }
-
-    const { data } = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL ?? "",
-      to: process.env.RESEND_TO_EMAIL ?? "",
-      subject: `${rawFormData.name} <${rawFormData.email}> email from g2sitework.com/contact `,
-      html: `<div>${rawFormData.message}</div>`,
-    });
-
-    console.log(`"Sending email" ${data?.id}`);
-  };
-
   return (
     <Card className="max-w-lg mx-auto p-8 space-y-6">
       <CardHeader className="mb-6">
         <CardTitle className="text-2xl font-semibold">Contact Us</CardTitle>
         <CardDescription className="text-gray-500">
           Please fill out the form below and we will get back to you as soon as possible.
-          <div className="flex py-2 gap-2">
-            <MailboxIcon className="w-5 h-5" />
-            <Link className="text-blue-600" href="mailto:info@g2sitework.com">
-              info@g2sitework.com
-            </Link>
-          </div>
-          <div className="flex py-2 gap-2">
-            <Phone className="w-5 h-5" />
-            <Link className="text-blue-600" href={`tel:${process.env.PHONE_NUMBER}`}>
-              {process.env.PHONE_NUMBER}
-            </Link>
-          </div>
         </CardDescription>
+        <div className="flex py-2 gap-2">
+          <Link
+            className="flex gap-2 justify-center items-center"
+            href="mailto:info@g2sitework.com"
+          >
+            <MailboxIcon className="w-5 h-5" />
+            <span className="text-orange-500">info@g2sitework.com</span>
+          </Link>
+        </div>
+        <div className="flex py-2 gap-2">
+          <Link
+            className="flex gap-2 justify-center items-center"
+            href={`tel:${process.env.PHONE_NUMBER}`}
+          >
+            <Phone className="w-5 h-5" />
+            <span className="text-orange-500">{process.env.PHONE_NUMBER}</span>
+          </Link>
+        </div>
       </CardHeader>
       <CardContent>
-        <form className="space-y-4" action={handleSubmit}>
-          <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
-            <Input
-              className="w-full focus-visible:ring-gray-700"
-              id="name"
-              name="name"
-              placeholder="First and Last Name"
-              required
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              className="w-full focus-visible:ring-gray-700"
-              id="email"
-              name="email"
-              placeholder="name@xyz.com"
-              required
-              type="email"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
-            <Textarea
-              className="w-full min-h-[100px] focus-visible:ring-gray-700"
-              id="message"
-              name="message"
-              placeholder="Your Message"
-              required
-            />
-          </div>
-          {/* Honeypot fields */}
-          <div className="absolute top-0 left-0 opacity-0 w-0 h-0 -z-10 ">
-            <Input id="h-email" name="h-email" type="email" />
-            <Input id="h-name" name="h-name" type="text" />
-            <Input id="h-text" name="h-message" type="text" />
-          </div>
-          <Button type="submit" className="w-full bg-black focus-visible:ring-gray-700 text-white">
-            Submit
-          </Button>
-        </form>
+        <Form />
       </CardContent>
     </Card>
   );
@@ -137,11 +69,11 @@ const Phone = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     data-testid="geist-icon"
     fill="none"
     height="24"
-    shape-rendering="geometricPrecision"
+    shapeRendering="geometricPrecision"
     stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="1.5"
     viewBox="0 0 24 24"
     width="24"
   >

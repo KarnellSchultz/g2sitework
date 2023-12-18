@@ -20,6 +20,7 @@ export function HomePage() {
                 height="550"
                 src="/images/sitework3.jpeg"
                 width="550"
+                sizes="(max-width: 600px) 100vw, 600px"
               />
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
@@ -27,7 +28,7 @@ export function HomePage() {
                     G2 sitework
                   </h1>
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Quality Sitework Services in Florida
+                    Quality Sitework Services in Tampa Bay
                   </h1>
                   <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
                     We offer top-notch sitework services, ensuring your construction projects are
