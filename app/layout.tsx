@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={GeistSans.className}>
       <Analytics />
-      <body className="  selection:bg-yellow-300 selection:text-black">
+      <body className="selection:bg-yellow-300 selection:text-black">
         <header className="px-4 lg:px-6 h-14 flex items-center">
           <Link className="flex items-center justify-center gap-2" href="/">
             <HardHatIcon className="h-6 w-6" />

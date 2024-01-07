@@ -12,9 +12,7 @@ export function ContactForm() {
     <Card className="max-w-lg mx-auto p-8 space-y-6">
       <CardHeader className="mb-6">
         <CardTitle className="text-2xl font-semibold">Contact Us</CardTitle>
-        <CardDescription className="text-gray-500">
-          Please fill out the form below and we will get back to you as soon as possible.
-        </CardDescription>
+        <CardDescription className="text-gray-500">Give us a call or an email </CardDescription>
         <div className="flex py-2 gap-2">
           <Link
             className="flex gap-2 justify-center items-center"
@@ -34,9 +32,7 @@ export function ContactForm() {
           </Link>
         </div>
       </CardHeader>
-      <CardContent>
-        <Form />
-      </CardContent>
+      <CardContent>{/* <Form /> */}</CardContent>
     </Card>
   );
 }

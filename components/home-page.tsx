@@ -4,7 +4,6 @@
  */
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { JSX, SVGProps } from "react";
 
 export function HomePage() {
@@ -66,10 +65,11 @@ export function HomePage() {
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row lg:justify-end">
-              <Link href="/contact">
-                <Button className="inline-flex h-12 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 ">
-                  Get a Quote
-                </Button>
+              <Link
+                href="/contact"
+                className="inline-flex h-12 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1   focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 "
+              >
+                Get a Quote
               </Link>
             </div>
           </div>
